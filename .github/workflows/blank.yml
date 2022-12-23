@@ -12,7 +12,7 @@ on:
 
 jobs:
   azure-login:
-    runs-on: [ Linux ]
+    runs-on: [ Ubuntu ]
     steps:
       - name: run script
         run: |
