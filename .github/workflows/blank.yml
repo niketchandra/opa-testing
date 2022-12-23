@@ -10,8 +10,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-  
-
 jobs:
   azure-login:
     runs-on: [ Linux ]
@@ -52,23 +50,6 @@ jobs:
             for(( index=0; index < $cluster_count; index++ ))
             do
                 echo "${index}" "${name[$index]}" "-->" "${rg[$index]} "subscription" "${sub[$index]}"
-#                az account set --subscription "${sub[$index]}"
-#                az aks get-credentials --resource-group ${rg[$index]} --name ${name[$index]} --admin
-
-#                az logout
-#                OPA_CONSTRAINT_JSON_LIST= `kubectl get ConstraintTemplate -o json && true, returnStdout:true`
-#               if [ $OPA_CONSTRAINT_JSON_LIST == "" && $OPA_CONSTRAINT_JSON_LIST == null ]
-#                then
-#                    echo "OPA gatekeeper is not deployed or there are No ConstraintTemplate deployed in cluster ${name[$index]}"
-#                
-#                 else
-#                  echo "commands need to run regarding kubectl"
-#              fi
              done
 
-        env: 
-          CLUSTER_SUBSCRIPTION: ${{ secrets.cluster_subscription }}
-          CLIENT_ID: ${{ secrets.AZ_ESCO_CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.AZ_ESCO_CLIENT_SECRET }}
-          TENANT_ID: ${{ secrets.AZ_ESCO_TENANT_ID }}
 
