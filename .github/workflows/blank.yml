@@ -45,8 +45,8 @@ jobs:
 
             #echo ${name[@]}
 
-            echo "Azure login..."
-                  az login --service-principal --username ${{ secrets.AZ_ESCO_CLIENT_ID }} --password ${{ secrets.AZ_ESCO_CLIENT_SECRET }} --tenant ${{ secrets.AZ_ESCO_TENANT_ID }}
+#            echo "Azure login..."
+#                  az login --service-principal --username ${{ secrets.AZ_ESCO_CLIENT_ID }} --password ${{ secrets.AZ_ESCO_CLIENT_SECRET }} --tenant ${{ secrets.AZ_ESCO_TENANT_ID }}
             for(( index=0; index < $cluster_count; index++ ))
             do
                 echo "${index}" "${name[$index]}" "-->" "${rg[$index]} "subscription" "${sub[$index]}"
